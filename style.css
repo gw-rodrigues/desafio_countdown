@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,600;1,300;1,600&display=swap');
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
+:root {
+    --black: #4D4C59;
+    --purple: #6C63FF;
+    --light-grey: #C8C8C8;
+    --text-color: #9C9AB6;
+}
+
+.ff-condensed {
+    font-family: 'Poppins';
+}
+
+.fs-300 {
+    font-weight: 300;
+}
+
+.fs-400 {
+    font-weight: 400;
+}
+
+.fs-500 {
+    font-weight: 500;
+}
