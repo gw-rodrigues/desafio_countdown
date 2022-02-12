@@ -1,7 +1,8 @@
 (()=>{
 
     const countdown = {
-        finish_time_millis: 0,
+        date_now: new Date('2022 01 01 00:00:00'),
+        date_end: new Date('2022 01 01 00:00:00'),
         timer_is_on: false,
         e_days: document.getElementById("days"),
         e_hours: document.getElementById("hours"),
@@ -10,27 +11,41 @@
         
     }
 
-    function writteTime () {
-
-        countdown.finish_time_millis.setMilliseconds(countdown.finish_time_millis.getMilliseconds() - 1000)
-        countdown.e_days.innerText = countdown.finish_time_millis.getDay().toString()
-        countdown.e_hours.innerText = countdown.finish_time_millis.getHours().toString()
-        countdown.e_minutes.innerText = countdown.finish_time_millis.getMinutes().toString()
-        countdown.e_seconds.innerText = countdown.finish_time_millis.getSeconds().toString() 
+    function remaning_time() {
         
-        if(Date.parse(countdown.finish_time_millis) > 0) {
-            setTimeout(writteTime, 1000)
+        countdown.date_end.setMilliseconds(-1000)
+
+        countdown.e_days.innerHTML = ("0" + Math.floor((countdown.date_end.getTime()-countdown.date_now.getTime()) / (1000 * 3600 * 24))).slice(-2)
+        countdown.e_hours.innerHTML = ("0" + countdown.date_end.getHours()).slice(-2)
+        countdown.e_minutes.innerHTML = ("0" + countdown.date_end.getMinutes()).slice(-2)
+        countdown.e_seconds.innerHTML = ("0" + countdown.date_end.getSeconds()).slice(-2)
+
+        console.log(("0" + Math.floor((countdown.date_end.getTime()-countdown.date_now.getTime()) / (1000 * 3600 * 24))).slice(-2))
+        console.log(("0" + countdown.date_end.getHours()).slice(-2))
+        console.log(("0" + countdown.date_end.getMinutes()).slice(-2))
+        console.log(("0" + countdown.date_end.getSeconds()).slice(-2))
+        
+        console.log(`
+        getTime now: ${countdown.date_now.getTime()}
+        getTime end: ${countdown.date_end.getTime()}
+        `)
+
+        if(countdown.date_end.getTime() > countdown.date_now.getTime()) {
+            setTimeout(remaning_time, 1000)
         }
-        
-    };
+       
+    }
 
-    function startTimer(days, hours, minutes, seconds){
+    function start_countdown (days, hours, minutes, seconds){
         if(!countdown.timer_is_on){
-            countdown.finish_time_millis = new Date(Date.now() + (days * 86400000) + (hours * 3600000) + (minutes * 60000) + (seconds * 1000))
-            setTimeout(writteTime, 1000)
+            countdown.date_end.setDate(countdown.date_end.getDate() + days)
+            countdown.date_end.setHours(hours)
+            countdown.date_end.setMinutes(minutes)
+            countdown.date_end.setSeconds(seconds)
+            setTimeout(remaning_time, 1000)
         }
     }
 
-    startTimer(6,33,22,11)
+    start_countdown(0,0,0,10)
 
 })();
