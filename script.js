@@ -11,15 +11,17 @@
         e_minutes: document.getElementById("minutes"),
         e_seconds: document.getElementById("seconds"),
         e_start_button: document.getElementById('start'),
-        e_input_days: document.getElementById('days'),
-        e_input_time: document.getElementById('time')
+        e_input_days: document.getElementById('input-days'),
+        e_input_time: document.getElementById('input-time')
     }
     // DECREMENT
     let timeOut;
     function remaning_time() {   
         countdown.date_end.setMilliseconds(-1000)
 
-        countdown.e_days.innerHTML = ("0" + Math.floor((countdown.date_end.getTime()-countdown.date_now.getTime()) / (1000 * 3600 * 24))).slice(-2)
+        let calc_days = Math.floor((countdown.date_end.getTime()-countdown.date_now.getTime()) / (1000 * 3600 * 24))
+
+        countdown.e_days.innerHTML = calc_days.toString().length < 2 ? ("0" + calc_days).slice(-2) : calc_days
         countdown.e_hours.innerHTML = ("0" + countdown.date_end.getHours()).slice(-2)
         countdown.e_minutes.innerHTML = ("0" + countdown.date_end.getMinutes()).slice(-2)
         countdown.e_seconds.innerHTML = ("0" + countdown.date_end.getSeconds()).slice(-2)
@@ -33,7 +35,9 @@
     function start_countdown (days, time){      
         if(!countdown.timer_is_on){
             countdown.timer_is_on = true
-            countdown.date_end = new Date(`2022 01 ${days + 1} ${time}`)
+            countdown.date_end = new Date(`2022 01 01 ${time}`)
+            countdown.date_end.setDate(parseInt(days) + 1)
+
             setTimeout(remaning_time, 1000)
         }else{
             countdown.timer_is_on = false
@@ -43,13 +47,11 @@
     }
 
     //SET PREDEFINED VALUES
-    countdown.e_input_days.value = '0';
-    countdown.e_input_time.value = '00:00:10';
+    countdown.e_input_days.value = '11';
+    countdown.e_input_time.value = '11:11:11';
 
     //GET INPUTVALS
     function getData(){
-        console.log(countdown.e_input_days.value)
-        console.log(countdown.e_input_time.value)
         start_countdown(countdown.e_input_days.value, countdown.e_input_time.value)
     }
 
