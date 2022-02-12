@@ -24,16 +24,6 @@
         countdown.e_minutes.innerHTML = ("0" + countdown.date_end.getMinutes()).slice(-2)
         countdown.e_seconds.innerHTML = ("0" + countdown.date_end.getSeconds()).slice(-2)
 
-        console.log(("0" + Math.floor((countdown.date_end.getTime()-countdown.date_now.getTime()) / (1000 * 3600 * 24))).slice(-2))
-        console.log(("0" + countdown.date_end.getHours()).slice(-2))
-        console.log(("0" + countdown.date_end.getMinutes()).slice(-2))
-        console.log(("0" + countdown.date_end.getSeconds()).slice(-2))
-        
-        console.log(`
-        getTime now: ${countdown.date_now.getTime()}
-        getTime end: ${countdown.date_end.getTime()}
-        `)
-
         if(countdown.date_end.getTime() > countdown.date_now.getTime()) {
             setTimeout(remaning_time, 1000)
         }
