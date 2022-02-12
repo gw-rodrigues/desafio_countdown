@@ -1,33 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Countdown</title>
+    <link href="style.css" rel="stylesheet">
 </head>
-<body>
-    <main>
-        <article aria-label="Countdown">
+<body class="ff-condensed">
+    <!-- #main area -->
+    <main class="main fs-400" aria-label="Countdown">
+        <!-- #article -->
+        <article class="countdown-area" aria-label="Countdown Area">
+            <!-- #title -->
             <header aria-label="Launch Message">
-                <h1></h1>
+                <h1 class="title">
+                    Ready to launch in...
+                </h1>
             </header>
-            <div aria-label="Contdown Timer">
-                <p></p>
-                <p></p>
-                <p></p>
-                <p></p>
+            <!-- #timer -->
+            <div id="timer" class="timer" aria-label="Contdown - Timer">
+                <div id="timer-days">
+                    <span class="fs-300">Dias</span>
+                    <span id="days" class="fs-500">00</span>
+                </div>
+                <span class="timer-separator fs-500">:</span>
+                <div id="timer-hours">
+                    <span class="fs-300">Horas</span>
+                    <span id="hours" class="fs-500">00</span>
+                </div>
+                <span class="timer-separator fs-500">:</span>
+                <div id="timer-minutes">
+                    <span class="fs-300">Minutos</span>
+                    <span id="minutes" class="fs-500">00</span>
+                </div>
+                <span class="timer-separator fs-500">:</span>
+                <div id="timer-seconds">
+                    <span class="fs-300">Segundos</span>
+                    <span id="seconds" class="fs-500">00</span>
+                </div>
+                <p class="fs-500"></p>
             </div>
-            <p></p>
-            <button type="button" aria-label="Form Button">
-                <span></span>
+            <!-- #more info -->
+            <p class="more-info fs-300">
+                Inscreva-se para saber mais sobre o lançamento
+            </p>
+            <!-- #modal button -->
+            <button class="button" type="button" aria-label="Form Button">
+                <span class="">Inscreva-se</span>
             </button>
         </article>
-        <aside aria-label="Rocket">
-            <figure>
-                <img src="" alt="">
+        <!-- #rocket area -->
+        <aside class="rocket-area" aria-label="Rocket">
+            <!-- #rocket img -->
+            <figure aria-label="Rocket Animation">
+                <img src="assets/rocket.svg" alt="Rocket">
             </figure>
         </aside>
-    </main>  
+    </main>
+    <!-- #modal -->
+    <section aria-label="Modal - Subscribe Form">
+
+    </section>
+    <!-- #background-imgs -->
+    <figure class="background-imgs" aria-label="Background-imgs">
+        <img class="background-img-top" src="assets/top-image.svg" alt="Top Background">
+        <img class="background-img-bot" src="assets/bottom-image.svg" alt="Bottom Background">
+    </figure>
+    <script src="script.js"></script>
 </body>
 </html>
