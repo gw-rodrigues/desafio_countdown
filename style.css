@@ -34,33 +34,9 @@
 }
 
 body {
-    background-color: var(--bg-color);
-}
-
-.background-imgs {
-    z-index: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100vw;
     height: 100vh;
-    margin: 0;
-    padding: 0;
-}
-
-.background-img-top, .background-img-bot {
-    width: 100%;
-    height: auto;
-    position: absolute;
-    filter: saturate(26)
-}
-
-.background-img-top {
-    top: 0;
-}
-
-.background-img-bot {
-    bottom: 0;
+    background: top / contain url('assets/top-image.svg') no-repeat fixed, bottom / contain url('assets/bottom-image.svg') no-repeat fixed ;
 }
 
 .main {
