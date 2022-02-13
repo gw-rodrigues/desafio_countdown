@@ -15,11 +15,11 @@ Neste desafio você deve criar uma página de coming soon (em breve) para o lan�
 <li>Responsivo, bug fix</li>
 </ul>
 
-## Aprendiozado
+## Aprendizado
 
 <ul>
 <li>Add 2 images de fundo</li>
-<li>Criar countdown usando propiedade Date</li>
+<li>Criar countdown usando propiedades Date</li>
 <li>Criando modal Popup e formulario</li>
 <li>Add event_listener</li>
 <li>Pegar valores atraves JS e manipular HTML</li>
